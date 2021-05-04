@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" LRU """
+""" LRU cache """
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -7,7 +7,7 @@ class LRUCache(BaseCaching):
     """ Class LRUCache  """
 
     def __init__(self):
-        """ Init """
+        """ Init self """
         super().__init__()
         self.ordered_cache_keys = []
 
