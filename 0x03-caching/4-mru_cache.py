@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ MRU Cache """
-
 BaseCaching = __import__('base_caching').BaseCaching
 
 
