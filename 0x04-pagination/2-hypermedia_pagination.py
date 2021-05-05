@@ -42,9 +42,9 @@ class Server:
         data = self.get_page(page, page_size)
         total = math.ceil(len(self.__dataset) / page_size)
         next = page + 1 if page < total else None
-        before = page - 1 if page > 1 else None
+        prev = page - 1 if page > 1 else None
         return {'page_size': len(data), 'page': page, 'data': data,
-                'next_page': next, 'before_page': before, 'total_pages': total}
+                'next_page': next, 'prev_page': prev, 'total_pages': total}
 
 
 def index_range(page, page_size):
