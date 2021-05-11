@@ -60,7 +60,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
 
 def main():
-    """ main 
+    """ main
     principal """
     db = get_db()
     cursor = db.cursor()
