@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """ class to manage
 the API authentication
 """
@@ -22,7 +21,6 @@ class Auth():
             if j[-1] == "*" and path.startswith(j[:-1]):
                 return False
         return True
-
 
     def authorization_header(self, request=None) -> str:
         """ header auth """
