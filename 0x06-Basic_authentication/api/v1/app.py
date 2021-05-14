@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Route module for the API
+App principal
 """
 from os import getenv
 from api.v1.views import app_views
@@ -23,27 +23,26 @@ elif os.getenv('AUTH_TYPE') == 'basic_auth':
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """ Not found handler
+    """ Not found
     """
     return jsonify({"error": "Not found"}), 404
 
 
 @app.errorhandler(401)
-def ifNot_authorized(error) -> str:
-    """ Unauthorized for handler """
+def not_authorized(error) -> str:
+    """ Unauthorized the handler"""
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
-def ifForbidden(error) -> str:
-    """ Forbidden for handler """
+def forbidden(error) -> str:
+    """ Forbidden hand"""
     return jsonify({"error": "Forbidden"}), 403
 
 
 @app.before_request
 def before_request() -> None:
-    """ Before request
-    """
+    """ Before method"""
     paths = ['/api/v1/status/', '/api/v1/unauthorized/',
              '/api/v1/forbidden/']
     if not auth:
