@@ -8,7 +8,8 @@ Base = declarative_base()
 
 
 class User():
-    """ class User """
+    """ class User 
+    for model"""
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
