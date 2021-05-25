@@ -32,3 +32,13 @@ class DB:
         self._session.add(user)
         self._session.commit()
         return user
+
+    def find_user_by(self, **kwargs) -> User:
+        """ finds a User taking in kwargs"""
+        if not kwargs:
+            raise InvalidRequestError
+
+        total = self._session.query(User).filter_by(**kwargs).first()
+        if not total:
+            raise NoResultFound
+        return total
