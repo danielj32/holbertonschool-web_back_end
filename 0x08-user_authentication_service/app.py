@@ -47,8 +47,7 @@ def sessions():
 
 @app.route('/sessions', methods=['DELETE'])
 def logout():
-    """ user logout
-    destroying the session_id """
+    """ user logout by destroying the session_id """
     cookie = request.cookies.get("session_id")
     user = AUTH.get_user_from_session_id(cookie)
     if user is None:
