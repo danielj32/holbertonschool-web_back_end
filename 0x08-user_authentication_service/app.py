@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
-def welcome():
+def home():
     """ return a JSON payload of the form """
     return jsonify({"message": "Bienvenue"})
 
