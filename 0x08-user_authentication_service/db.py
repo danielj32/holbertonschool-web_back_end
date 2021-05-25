@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """ Module of DB """
 from sqlalchemy import create_engine
@@ -21,6 +20,7 @@ class DB:
 
     @property
     def _session(self):
+        """ creates a session """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
