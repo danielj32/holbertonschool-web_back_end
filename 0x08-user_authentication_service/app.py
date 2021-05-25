@@ -3,12 +3,15 @@
 6. Basic Flask app
 """
 from flask import Flask, jsonify, request
+
+
 app = Flask(__name__)
 
 
 @app('/', methods=['GET'])
 def home():
-    """  return a JSON payload of the form """
+    """  return a JSON
+    payload of the form """
     return jsonify({"message": "Bienvenue"})
 
 
