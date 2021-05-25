@@ -10,13 +10,16 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def welcome():
-    """ returns a message when the route / is requested """
+    """ returns new
+    message when
+    the route / is requested """
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', methods=['POST'])
 def users():
-    """ registers a new user """
+    """ registers a
+    new user view """
     email = request.form.get('email')
     password = request.form.get('password')
     try:
@@ -28,8 +31,9 @@ def users():
 
 @app.route('/sessions', methods=['POST'])
 def sessions():
-    """ create a new session for the user,
-    store it the session ID as a cookie with key "session_id" on the response
+    """ new session for the user,
+    store it the session ID as a cookie with key "session_id"
+    on the response
     and return a JSON payload """
     email = request.form.get('email')
     password = request.form.get('password')
@@ -45,7 +49,8 @@ def sessions():
 
 @app.route('/sessions', methods=['DELETE'])
 def logout():
-    """ user logout by destroying the session_id """
+    """ the user logout
+    by destroying the session_id """
     cookie = request.cookies.get("session_id")
     user = AUTH.get_user_from_session_id(cookie)
     if user is None:
