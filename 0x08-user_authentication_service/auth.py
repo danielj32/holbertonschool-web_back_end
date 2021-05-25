@@ -2,6 +2,7 @@
 """
 Auth db
 """
+from flask.globals import session
 from db import DB
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
@@ -75,3 +76,10 @@ class Auth:
             return origin
         except NoResultFound:
             None
+
+    def destroy_session(self, user_id: int) -> None:
+        """ takes a single user_id
+        integer argument and returns None
+        """
+        self._db.update_user(user_id, session_id=None)
+        return None
