@@ -42,3 +42,15 @@ class DB:
         if not total:
             raise NoResultFound
         return total
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """ method that takes as argument a required
+        user_id integer and arbitrary keyword arguments,
+        and returns None
+        """
+        origin = self.find_user_by(id=user_id)
+        for kys, value in kwargs.items():
+            if not hasattr(origin, kys):
+                raise ValueError
+            else:
+                setattr(origin, kys, value)
