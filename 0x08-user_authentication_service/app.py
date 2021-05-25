@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" a basic Flask app. """
+""" a basic Flask """
 from flask import Flask, jsonify, request, abort, make_response, redirect
 from auth import Auth
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def welcome():
-    """ returns a message when the route / is requested """
+    """ return a JSON payload of the form """
     return jsonify({"message": "Bienvenue"})
 
 
