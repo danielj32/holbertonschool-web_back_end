@@ -102,8 +102,8 @@ class Auth:
         try:
             email = self._db.find_user_by(reset_token=reset_token)
             new_pass = _hash_password(password)
-            self._db.update_user(email.id, h_pass=new_pass,
+            self._db.update_user(email.id, hashed_password=new_pass,
                                  reset_token=None)
             return None
-        except Exception as j:
+        except Exception:
             raise ValueError
