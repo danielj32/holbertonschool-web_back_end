@@ -7,6 +7,7 @@ from utils import get_json
 from utils import memoize
 import unittest
 
+
 class TestAccessNestedMap(unittest.TestCase):
     """ Nested Map """
     @parameterized.expand([
