@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
-""" Parameterize a unit test """
-from parameterized import parametized
-from unittest.mock import patch
-from utils import access_nested_map
-from utils import get_json
-from utils import memoize
+""" Test for file utils """
 import unittest
+from utils import access_nested_map, get_json, memoize
+from parameterized import parameterized
+from unittest.mock import Mock, patch
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """ Nested Map """
+    """ access_nested_map test class"""
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {'b': 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, map, path, result):
-        """ test the
-        utils.access_nested_map method """
-        self.assertEqual(access_nested_map(map, path), result)
+    def test_access_nested_map(self, nested_map, path, expected):
+        """ Method that tests access_nested_map function """
+        self.assertEquals(access_nested_map(nested_map, path), expected)
 
-        @parameterized.expand([
+    @parameterized.expand([
         ({}, ("a",), KeyError),
         ({"a": 1}, ("a", "b"), KeyError)
     ])
