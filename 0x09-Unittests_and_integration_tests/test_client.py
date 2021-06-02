@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """ Tests for file clients """
 from client import GithubOrgClient
 from parameterized import parameterized
