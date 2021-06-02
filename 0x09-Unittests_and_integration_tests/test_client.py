@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """ Tests for file clients """
 from client import GithubOrgClient
 from parameterized import parameterized
@@ -11,9 +10,10 @@ class GithubOrgClient(unittest.TestCase):
     """ class test for For GitHub """
     @parameterized.expand([
         ("google"),
-        ("abc") 
+        ("abc")
     ])
     def test_org(self, org):
         """ method testing """
         testing = GithubOrgClient(org)
-        self.assertEqual(testing.org(), "https://api.github.com/orgs/{}".format(org))
+        self.assertEqual(testing.org(),
+                         "https://api.github.com/orgs/{}".format(org))
