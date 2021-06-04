@@ -15,7 +15,7 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app.config.from_object('1-app.Config')
+app.config.from_object('5-app.Config')
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
@@ -28,7 +28,7 @@ users = {
 def helloWorld():
     """return render
     index template """
-    return render_template("4-index.html")
+    return render_template("5-index.html")
 
 
 @babel.localeselector
