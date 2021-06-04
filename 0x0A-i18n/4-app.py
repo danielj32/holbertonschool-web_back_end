@@ -30,10 +30,9 @@ def get_locale():
     """ determine the
     best match with
     our supported languages """
-    if request.full_path.split('/')[1][:8] == "?locale=":
-        lg = request.full_path.split('/')[1][8:]
-        if lg in app.config['LANGUAGES']:
-            return lg
+    locale = request.args.get("locale")
+    if locale and locale in app.config['LANGUAGES']:
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
