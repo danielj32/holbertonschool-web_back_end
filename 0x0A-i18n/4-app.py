@@ -22,7 +22,7 @@ app.config.from_object('1-app.Config')
 def helloWorld():
     """return render
     index template """
-    return render_template("3-index.html")
+    return render_template("4-index.html")
 
 
 @babel.localeselector
