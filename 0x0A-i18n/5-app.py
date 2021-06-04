@@ -2,7 +2,8 @@
 """ Flask app
 basic components """
 from flask import Flask, app, render_template, g, request
-from flask_babel import Babel, _
+from flask_babel import Babel
+from typing import Union
 app = Flask(__name__)
 babel = Babel(app)
 
@@ -42,22 +43,27 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
+def get_user() -> Union[dict, None]:
+    """ that returns a user
+    dictionary or None if the ID cannot be
+        found or if login_as was not passed.
+    """
+    user_id = request.args.get("login_as")
+    if user_id:
+        u_id = int(user_id)
+        if u_id in users:
+            return users.get(u_id)
+    else:
+        return None
+
+
 @app.before_request
 def before_request():
-    """ determine if a
-    user is logged in, and the language """
-    id = request.args.get('login_as')
-    d_user = get_user(id)
-    if d_user:
-        g.user = d_user
-
-
-def get_user(id):
-    """ returns a user
-    dictionary or None """
-    if id and int(id) in users:
-        return users[int(id)]
-    return None
+    """ find a user and
+    set it as a global
+    """
+    user = get_user()
+    g.user = user
 
 
 if __name__ == '__main__':
