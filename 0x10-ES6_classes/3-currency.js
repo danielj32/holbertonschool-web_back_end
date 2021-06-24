@@ -7,15 +7,15 @@ export default class Currency {
         throw (TypeError('Attributes must be strings'));
       }
     }
-  
+
     get name() {
       return this.__name;
     }
-  
+
     get code() {
       return this.__code;
     }
-  
+
     set name(name) {
       if (typeof name === 'string') {
         this.__name = name;
@@ -23,7 +23,7 @@ export default class Currency {
         throw (TypeError('Attributes must be strings'));
       }
     }
-  
+
     set code(code) {
       if (typeof code === 'string') {
         this.__code = code;
@@ -31,7 +31,7 @@ export default class Currency {
         throw (TypeError('Attributes must be strings'));
       }
     }
-  
+
     displayFullCurrency() {
       return `${this.__name} (${this.__code})`;
     }
