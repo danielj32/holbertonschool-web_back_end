@@ -1,12 +1,12 @@
 import Currency from "./3-currency";
 
 export default class Pricing {
-		constructor(amount, currency) {
-			if (typeof amount !== 'number' || !(currency instanceof Currency)) {
-				throw (TypeError('wrong parameter type'));
-			}
-			this.__amount = amount;
-			this.__currency = currency;
+	constructor(amount, currency) {
+		if (typeof amount !== 'number' || !(currency instanceof Currency)) {
+			throw (TypeError('wrong parameter type'));
+		}
+		this.__amount = amount;
+		this.__currency = currency;
 		}
 
 		get amount() {
