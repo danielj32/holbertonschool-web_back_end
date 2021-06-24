@@ -6,10 +6,10 @@ export default class Building {
     if (typeof sqft !== 'number') {
       throw (TypeError('sqft must be an integer'));
     }
-    this.__sqft = sqft;
+    this._sqft = sqft;
   }
 
   get sqft() {
-    return this.__sqft;
+    return this._sqft;
   }
 }
