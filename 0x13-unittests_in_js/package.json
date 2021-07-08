@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sinon": "^9.1.0"
+    "sinon": "^9.2.4"
   },
   "devDependencies": {
     "chai": "^4.2.0",
